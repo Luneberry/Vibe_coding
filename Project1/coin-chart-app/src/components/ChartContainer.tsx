@@ -155,7 +155,7 @@ export default function ChartContainer({ data }: ChartContainerProps) {
   }));
 
   return (
-    <div className="w-full flex flex_col gap-8">
+    <div className="w-full flex flex-col gap-8">
       <CandlestickChart data={data} />
 
       {/* Price Chart */}
