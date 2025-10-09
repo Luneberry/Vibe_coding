@@ -19,35 +19,45 @@ import {
   Area,
   CartesianGrid,
 } from 'recharts';
-import type { TooltipProps } from 'recharts/types/component/Tooltip';
-import type {
-  ValueType,
-  NameType,
-  Payload,
-} from 'recharts/types/component/DefaultTooltipContent';
+
+// ✅ recharts 타입 임포트 전부 제거 (버전차로 자꾸 깨짐)
+// import type { TooltipProps } from 'recharts';
+// import type { TooltipProps } from 'recharts/types/component/Tooltip';
+// import type { ValueType, NameType, Payload } from 'recharts/types/...';
+
+// ✅ 커스텀 툴팁에 필요한 최소 타입만 로컬로 선언
+type RTValue = number | string | Array<number | string>;
+type RTName = number | string;
+type RTPayload = {
+  name?: RTName;
+  value?: RTValue;
+  color?: string;
+};
+type RTooltipProps = {
+  active?: boolean;
+  payload?: RTPayload[];
+  label?: string | number;
+};
 
 interface ChartContainerProps {
   data: Candle[];
 }
 
 /* ---------------------- Recharts Custom Tooltip ---------------------- */
-
-const CustomTooltip = (
-  { active, payload, label }: TooltipProps<ValueType, NameType>
-) => {
+const CustomTooltip = ({ active, payload, label }: RTooltipProps) => {
   if (active && payload && payload.length) {
-    const items = payload as Payload<ValueType, NameType>[];
-
     return (
       <div className="p-4 bg-[var(--input-background)] border border-[var(--border-color)] rounded-lg shadow-lg">
         <p className="label text-sm font-bold text-white">{`Date: ${label}`}</p>
-        {items.map((pld, index) => {
-          const color = pld.color;                     // string | undefined
+        {payload.map((pld, index) => {
+          const color = pld.color;
           const name  = String(pld.name ?? '');
-          const val   = Number(pld.value ?? 0);
+          const valNum = Array.isArray(pld.value)
+            ? Number(pld.value[0] ?? 0)
+            : Number(pld.value ?? 0);
           return (
             <p key={index} style={{ color }}>
-              {`${name}: ${val.toLocaleString()}`}
+              {`${name}: ${Number.isFinite(valNum) ? valNum.toLocaleString() : pld.value}`}
             </p>
           );
         })}
@@ -58,7 +68,6 @@ const CustomTooltip = (
 };
 
 /* --------------------------- Formatters --------------------------- */
-
 const formatPrice = (tick: number) => {
   if (tick >= 1e9) return `${(tick / 1e9).toFixed(1)}B`;
   if (tick >= 1e6) return `${(tick / 1e6).toFixed(1)}M`;
@@ -68,7 +77,6 @@ const formatPrice = (tick: number) => {
 const formatPercentage = (tick: number) => `${(tick * 100).toFixed(2)}%`;
 
 /* ----------------------- Lightweight Candles ----------------------- */
-
 const CandlestickChart = ({ data }: { data: Candle[] }) => {
   const chartContainerRef = useRef<HTMLDivElement>(null);
 
@@ -140,7 +148,6 @@ const CandlestickChart = ({ data }: { data: Candle[] }) => {
 };
 
 /* ---------------------------- Container ---------------------------- */
-
 export default function ChartContainer({ data }: ChartContainerProps) {
   const formattedData = data.map((d) => ({
     ...d,
@@ -148,7 +155,7 @@ export default function ChartContainer({ data }: ChartContainerProps) {
   }));
 
   return (
-    <div className="w-full flex flex-col gap-8">
+    <div className="w-full flex flex_col gap-8">
       <CandlestickChart data={data} />
 
       {/* Price Chart */}
