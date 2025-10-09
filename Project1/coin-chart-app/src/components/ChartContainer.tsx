@@ -19,7 +19,8 @@ import {
   Area,
   CartesianGrid,
 } from 'recharts';
-import type { TooltipProps, NameType, ValueType } from 'recharts';
+import type { TooltipProps } from 'recharts';
+import type { ValueType, NameType } from 'recharts/types/component/DefaultTooltipContent';
 
 interface ChartContainerProps {
   data: Candle[];
