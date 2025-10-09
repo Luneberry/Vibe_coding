@@ -20,7 +20,12 @@ import {
   CartesianGrid,
 } from 'recharts';
 import type { TooltipProps } from 'recharts';
-import type { ValueType, NameType } from 'recharts/types/component/DefaultTooltipContent';
+import type { TooltipProps } from 'recharts/types/component/Tooltip';
+import type {
+  ValueType,
+  NameType,
+  Payload,
+} from 'recharts/types/component/DefaultTooltipContent';
 
 interface ChartContainerProps {
   data: Candle[];
@@ -32,17 +37,18 @@ const CustomTooltip = (
   { active, payload, label }: TooltipProps<ValueType, NameType>
 ) => {
   if (active && payload && payload.length) {
+    const items = payload as Payload<ValueType, NameType>[];
+
     return (
       <div className="p-4 bg-[var(--input-background)] border border-[var(--border-color)] rounded-lg shadow-lg">
         <p className="label text-sm font-bold text-white">{`Date: ${label}`}</p>
-        {payload.map((pld, index) => {
-          // 런타임-세이프 접근(타입 내 color/name/value는 선택적이라 가드)
-          const color = (pld as { color?: string }).color;
-          const name = String(pld?.name ?? '');
-          const valueNum = Number(pld?.value ?? 0);
+        {items.map((pld, index) => {
+          const color = pld.color;                     // string | undefined
+          const name  = String(pld.name ?? '');
+          const val   = Number(pld.value ?? 0);
           return (
             <p key={index} style={{ color }}>
-              {`${name}: ${valueNum.toLocaleString()}`}
+              {`${name}: ${val.toLocaleString()}`}
             </p>
           );
         })}
