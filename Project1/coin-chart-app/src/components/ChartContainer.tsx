@@ -19,7 +19,6 @@ import {
   Area,
   CartesianGrid,
 } from 'recharts';
-import type { TooltipProps } from 'recharts';
 import type { TooltipProps } from 'recharts/types/component/Tooltip';
 import type {
   ValueType,
