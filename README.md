@@ -17,6 +17,7 @@
 *   **사용 기술:**
     *   `Python`
     *   `Next.js`, `TypeScript`
+*   [🔗 프로젝트 링크 보기](https://vibe-coding-iota.vercel.app)
 
 ### 📈 Project2: 네이버 주식 차트
 
@@ -28,6 +29,7 @@
 *   **사용 기술:**
     *   `Python`
     *   `Next.js`, `TypeScript`, `Tailwind CSS`
+*   [🔗 프로젝트 링크 보기](https://vibe-coding-7tff.vercel.app)
 
 ### 📝 Project3: 유튜브 요약 크롬 확장프로그램
 
