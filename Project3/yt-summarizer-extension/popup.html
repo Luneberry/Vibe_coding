@@ -1,0 +1,44 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YouTube 요약 & 스크립트</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 12px; width: 320px; }
+    h1 { font-size: 16px; margin: 0 0 8px; }
+    .row { display: flex; gap: 8px; margin-bottom: 10px; }
+    button { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd; cursor: pointer; }
+    button:disabled { opacity: 0.5; cursor: default; }
+    .status { font-size: 12px; min-height: 18px; color: #333; }
+    details { margin-top: 10px; }
+    label { display:block; font-size:12px; margin-top:6px;}
+    input[type="text"], input[type="password"] { width:100%; padding:6px; border:1px solid #ddd; border-radius:6px; }
+    .muted { color:#666; font-size:12px; }
+  </style>
+</head>
+<body>
+  <h1>🎬 YouTube 요약 & 스크립트</h1>
+  <div class="row">
+    <button id="btnSummary">요약하기</button>
+    <button id="btnTranscript">스크립트 다운</button>
+  </div>
+  <div class="status" id="status"></div>
+  <div class="muted" id="hint"></div>
+
+  <details>
+    <summary>설정 (WEBHOOK / API Key)</summary>
+    <label>Webhook Base (예: https://your-webhook.example.com)</label>
+    <input id="inpWebhook" type="text" placeholder="https://your-webhook.example.com" />
+    <label>API Key (옵션)</label>
+    <input id="inpApiKey" type="password" placeholder="••••••••" />
+    <div class="row" style="margin-top:8px;">
+      <button id="btnSave">저장</button>
+      <button id="btnClear">초기화</button>
+    </div>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>

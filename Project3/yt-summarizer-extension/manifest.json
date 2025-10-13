@@ -1,0 +1,42 @@
+{
+  "name": "YouTube 요약 & 스크립트 다운",
+  "description": "유튜브 동영상 요약을 팝업으로 표시하고, 언어 규칙에 따라 스크립트를 다운로드합니다.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "/assets/icon16.png"
+  },
+  "background": {
+    "service_worker": "./background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtu.be/*",
+    "https://modulabs.ddns.net/*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtu.be/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "/assets/icon16.png",
+    "48": "/assets/icon48.png",
+    "128": "/assets/icon128.png"
+  }
+}

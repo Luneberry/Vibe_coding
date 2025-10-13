@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>요약 보기</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #0b0b0b;
+      --muted: #6b7280;
+      --card: #f8fafc;
+      --border: #e5e7eb;
+      --primary: #0b57d0;
+      --shadow: 0 1px 12px rgba(0,0,0,.06);
+      --radius: 14px;
+      --maxw: 860px;
+      --fz: 18px;           /* 본문 기본 글자 크기 */
+      --lh: 1.85;           /* 본문 행간 */
+      --title-fz: 22px;     /* 제목 크기 */
+      --section-title-fz: 18px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0f14;
+        --fg: #e5e7eb;
+        --muted: #9aa3af;
+        --card: #111827;
+        --border: #223041;
+        --primary: #7aa2ff;
+        --shadow: 0 1px 18px rgba(0,0,0,.35);
+      }
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Apple SD Gothic Neo, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: var(--fz);
+      line-height: var(--lh);
+    }
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 22px 18px 40px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: var(--title-fz);
+      margin: 0 12px 0 0;
+      font-weight: 700;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: .9em;
+      margin: 10px 0 18px;
+    }
+    .toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--fg);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    button:hover { background: var(--card); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: transparent;
+    }
+    .btn-primary:hover { filter: brightness(.95); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 18px;
+      margin: 0 0 16px;
+    }
+    .section-title {
+      font-size: var(--section-title-fz);
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .footer-gap { height: 24px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <h1 id="title">요약</h1>
+      <div class="toolbar">
+        <button id="btnCopy" class="btn-primary">요약 복사</button>
+        <button id="btnSmaller" title="작게 (Ctrl -)">A−</button>
+        <button id="btnBigger"  title="크게 (Ctrl +)">A+</button>
+        <button id="btnClose">닫기</button>
+      </div>
+    </div>
+
+    <div id="meta" class="meta"></div>
+    <div id="container"></div>
+    <div class="footer-gap"></div>
+  </div>
+
+  <!-- MV3: 외부 js 사용 -->
+  <script src="summary.js"></script>
+</body>
+</html>
