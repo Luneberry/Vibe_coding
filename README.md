@@ -11,37 +11,49 @@
 
 > 비트코인 시세 데이터를 기반으로 자동매매 로직을 연구하고, 웹에서 차트를 시각화하는 프로젝트입니다.
 
-*   **주요 기능:**
-    *   `BTC-automation.py`: Python을 이용한 간단한 자동매매 로직 구현
-    *   `coin-chart-app`: Next.js를 사용해 코인 가격 변동 차트 표시
-*   **사용 기술:**
-    *   `Python`
-    *   `Next.js`, `TypeScript`
-*   [🔗 프로젝트 링크 보기](https://vibe-coding-iota.vercel.app)
+- **주요 기능:**
+  - `BTC-automation.py`: Python을 이용한 간단한 자동매매 로직 구현
+  - `coin-chart-app`: Next.js를 사용해 코인 가격 변동 차트 표시
+- **사용 기술:**
+  - `Python`
+  - `Next.js`, `TypeScript`
+- [🔗 프로젝트 링크 보기](https://vibe-coding-iota.vercel.app)
 
 ### 📈 Project2: 네이버 주식 차트
 
 > 네이버 증권 API를 활용해 특정 종목의 주가 데이터를 가져와 캔들 차트로 보여주는 웹 애플리케이션입니다.
 
-*   **주요 기능:**
-    *   `request_to_json.py`: Python으로 주가 데이터를 요청하고 JSON 파일로 저장
-    *   `naver-stock-dual-api`: Next.js 환경에서 저장된 데이터를 기반으로 캔들 차트 시각화
-*   **사용 기술:**
-    *   `Python`
-    *   `Next.js`, `TypeScript`, `Tailwind CSS`
-*   [🔗 프로젝트 링크 보기](https://vibe-coding-7tff.vercel.app)
+- **주요 기능:**
+  - `request_to_json.py`: Python으로 주가 데이터를 요청하고 JSON 파일로 저장
+  - `naver-stock-dual-api`: Next.js 환경에서 저장된 데이터를 기반으로 캔들 차트 시각화
+- **사용 기술:**
+  - `Python`
+  - `Next.js`, `TypeScript`, `Tailwind CSS`
+- [🔗 프로젝트 링크 보기](https://vibe-coding-7tff.vercel.app)
 
 ### 📝 Project3: 유튜브 요약 크롬 확장프로그램
 
 > 현재 보고 있는 유튜브 영상의 스크립트를 가져와 간단하게 요약해주는 크롬 확장프로그램입니다.
 
-*   **주요 기능:**
-    *   유튜브 페이지에서 스크립트 추출
-    *   추출된 스크립트를 기반으로 요약 내용 표시
-*   **사용 기술:**
-    *   `JavaScript (ES6+)`
-    *   `HTML`, `CSS`
-    *   `Chrome Extension API`
+- **주요 기능:**
+  - 유튜브 페이지에서 스크립트 추출
+  - 추출된 스크립트를 기반으로 요약 내용 표시
+- **사용 기술:**
+  - `JavaScript (ES6+)`
+  - `HTML`, `CSS`
+  - `Chrome Extension API`
+
+### 🤖 Project4: 소셜 미디어 트렌드 자동화
+
+> 유튜브와 X(구 트위터)의 트렌드 데이터를 분석하고, 콘텐츠 포스팅을 자동화하는 프로젝트입니다.
+
+- **주요 기능:**
+  - `trend_automation.py`: 유튜브 등 플랫폼에서 트렌드 데이터 수집
+  - `x_automation.py`: X에 자동으로 게시물 포스팅
+  - `posts_helper.py`: 포스트 생성을 돕는 헬퍼 모듈
+  - `download.py`: 인기 급상승 동영상 50개를 가져와 json 파일로 저장
+- **사용 기술:**
+  - `Python`
 
 ---
 
