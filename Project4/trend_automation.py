@@ -303,7 +303,7 @@ def robust_submit(driver, wait, timeout=12):
 # -----------------------------
 def main():
     # (1) 인급동 50개 즉시 조회
-    api_key = ""
+    api_key = "AIzaSyAnO_HfsAd-4lG7zGc2EVbh7z8s9e-Z11I"
     if not api_key:
         print("❌ 환경변수 YOUTUBE_API_KEY 를 설정하세요.")
         sys.exit(1)

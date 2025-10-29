@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.com/index.html</loc></url>
+  <url><loc>https://example.com/salary-tables.html</loc></url>
+  <url><loc>https://example.com/tax-brackets.html</loc></url>
+  <url><loc>https://example.com/job-board.html</loc></url>
+  <url><loc>https://example.com/blog/index.html</loc></url>
+  <url><loc>https://example.com/blog/salary-negotiation.html</loc></url>
+  <url><loc>https://example.com/blog/resume-portfolio.html</loc></url>
+  <url><loc>https://example.com/faq.html</loc></url>
+  <url><loc>https://example.com/about.html</loc></url>
+  <url><loc>https://example.com/privacy.html</loc></url>
+  <url><loc>https://example.com/terms.html</loc></url>
+  <url><loc>https://example.com/contact.html</loc></url>
+</urlset>
